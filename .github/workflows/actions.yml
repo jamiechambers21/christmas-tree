@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '0 8 * * *' # Everyday at 8am
+    -cron: '5 * * * *' # At minute 5  # - cron: '0 8 * * *' # Everyday at 8am
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9' # install the python version needed
+          python-version: '3.10.6' # install the python version needed
 
       - name: install python packages
         run: |
