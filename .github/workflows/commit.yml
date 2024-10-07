@@ -1,5 +1,8 @@
 name: Commit Trigger
+
+# Add this "workflow_dispatch" to enable manual triggering
 on:
+  workflow_dispatch:   # Allows you to run the workflow manually from GitHub
   schedule:
     - cron: '0 0 * * *' # This runs the script once every day at midnight UTC
 
@@ -26,8 +29,8 @@ jobs:
 
     - name: Configure Git
       run: |
-        git config --global user.name 'YourGitHubUsername'
-        git config --global user.email 'YourGitHubEmail@example.com'
+        git config --global user.name 'jamiechambers21'
+        git config --global user.email 'jamiechambers21@gmail.com'
 
     - name: Commit changes
       run: |
