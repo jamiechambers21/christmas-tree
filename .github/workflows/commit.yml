@@ -1,21 +1,20 @@
 name: Commit Trigger
 
-# Add this "workflow_dispatch" to enable manual triggering
 on:
-  workflow_dispatch:   # Allows you to run the workflow manually from GitHub
+  workflow_dispatch:   # Allows manual triggering
   schedule:
-    - cron: '0 0 * * *' # This runs the script once every day at midnight UTC
+    - cron: '0 0 * * *' # Scheduled run
 
 jobs:
   make_commit:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3   # Use v3 instead of v2
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4   # Use v4 instead of v2
       with:
         python-version: '3.x'
         
