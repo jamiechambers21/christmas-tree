@@ -1,7 +1,3 @@
-Sure! Here’s a fun and engaging `README.md` for your project that highlights its purpose while adding a bit of humor:
-
----
-
 # 🎄 Christmas Tree - Keep Your GitHub Profile Green! 🎄
 
 Welcome to **Christmas Tree**, the one-stop solution to make sure your GitHub contribution graph is always festive and green—no matter what time of year it is! 🌱
