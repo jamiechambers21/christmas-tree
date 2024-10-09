@@ -1,9 +1,9 @@
 import subprocess
 from datetime import datetime
 
-def update_log():
-    with open('log.txt', 'a') as f:
-        f.write(f'Automated commit at {datetime.now()}\n')
+# def update_log():
+#     with open('log.txt', 'a') as f:
+#         f.write(f'Automated commit at {datetime.now()}\n')
 
 def git_commit_and_push():
     try:
@@ -22,5 +22,5 @@ def git_commit_and_push():
         print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    update_log()
+    # update_log()
     git_commit_and_push()
