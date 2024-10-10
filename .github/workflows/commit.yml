@@ -1,9 +1,9 @@
-name: Make Commit
+name: Commit Trigger
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:   # Allows manual triggering
+  schedule:
+    - cron: '0 0 * * *' # Scheduled run
 
 jobs:
   make_commit:
@@ -11,25 +11,30 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2 # The older version before the update to v3
+      uses: actions/checkout@v3   # Use v3 instead of v2
 
     - name: Set up Python
-      uses: actions/setup-python@v2 # Older version before the update to v4
+      uses: actions/setup-python@v4   # Use v4 instead of v2
       with:
         python-version: '3.x'
-
+        
     - name: Install dependencies
-      run: pip install -r requirements.txt
-
-    - name: Run Python script
-      run: python your_script.py
-
-    - name: Commit and Push Changes
       run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add log.txt
-        git commit -m "Automated commit at $(date)"
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Run Python script
+      run: python main.py
+
+    - name: Configure Git
+      run: |
+        git config --global user.name 'jamiechambers21'
+        git config --global user.email 'jamiechambers21@gmail.com'
+
+    - name: Commit changes
+      run: |
+        git add .
+        git commit -m "Auto-update contribution graph"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
