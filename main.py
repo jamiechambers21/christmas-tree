@@ -1,4 +1,5 @@
 import subprocess
+import random
 from datetime import datetime
 
 def update_log():
@@ -22,5 +23,10 @@ def update_log():
 #         print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    update_log()
-    # git_commit_and_push()
+    # Pick a random number between 1 and 3
+    num_loops = random.randint(1, 3)
+
+    # Loop that many times to update the log
+    for _ in range(num_loops):
+        update_log()
+        #git_commit_and_push()
